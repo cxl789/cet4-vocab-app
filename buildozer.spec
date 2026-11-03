@@ -79,6 +79,10 @@ android.archs = arm64-v8a, armeabi-v7a
 # (bool) enables Android auto backup feature (Android API >=23)
 android.allow_backup = True
 
+# (bool) 自动回答 Android SDK 许可协议（否则 sdkmanager 卡在许可提示，
+#       导致 build-tools 装不上、报 "Aidl not found"）
+android.accept_sdk_license = True
+
 # (str) The format used to package the app for release mode (aab or apk or aar).
 android.release_artifact = apk
 
@@ -114,9 +118,7 @@ android.debug_artifact = apk
 #p4a.port =
 
 # Control passing the --use-setup-py vs --ignore-setup-py to p4a
-# "in the future" --use-setup-py is going to be the default behaviour in p4a, at which point
-# this flag will become the exception rather than the default
-p4a.extra_args = --ignore-setup-py
+# 本项目没有 setup.py，p4a 会自动跳过，无需额外参数
 
 #
 # iOS specific
