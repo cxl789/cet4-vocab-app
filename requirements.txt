@@ -1,0 +1,4 @@
+kivy>=2.3.0
+# 打包 APK 用（构建机安装，不进 APK）
+# buildozer>=1.5
+# cython==0.29.36

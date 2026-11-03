@@ -1,0 +1,16 @@
+# python
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# buildozer
+.buildozer/
+bin/
+#buildozer.log
+
+# data sources (体积大，用脚本重新生成)
+tools/srcdata/
+
+# os
+.DS_Store
+Thumbs.db
