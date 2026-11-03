@@ -62,7 +62,7 @@ fullscreen = 0
 android.permissions = INTERNET
 
 # (int) Target Android API, should be as high as possible.
-#android.api = 33
+android.api = 33
 
 # (int) Minimum API your APK / AAB will support.
 android.minapi = 21
@@ -74,7 +74,8 @@ android.minapi = 21
 android.private_storage = True
 
 # (list) The Android archs to build for
-android.archs = arm64-v8a, armeabi-v7a
+# 只编 arm64-v8a：现代手机（2017 年后）全支持，构建时间减半
+android.archs = arm64-v8a
 
 # (bool) enables Android auto backup feature (Android API >=23)
 android.allow_backup = True
@@ -103,7 +104,10 @@ android.debug_artifact = apk
 #p4a.fork = kivy
 
 # (str) python-for-android branch to use, defaults to master
-#p4a.branch = master
+# 必须钉到发行版：master 分支的 python3 recipe 已是 3.14.x，
+# 其自带 pip 在自升级时会出现文件混版（pip._internal.utils.logging 缺 capture_logging）导致构建失败。
+# v2024.01.21 = Python 3.11.5 + NDK 25b，是验证最多的稳定组合。
+p4a.branch = v2024.01.21
 
 # (str) python-for-android git clone directory (if empty, it will be automatically cloned from github)
 #p4a.local =
